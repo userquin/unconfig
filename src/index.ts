@@ -146,7 +146,7 @@ async function loadConfigFile<T>(
       }
       else if (parser === 'import') {
         if (process.features.typescript || process.versions.bun || process.versions.deno) {
-          const defaultImport = await import(filepath)
+          const defaultImport = await import(bundleFilepath)
           config = interopDefault(defaultImport)
         }
         else {
