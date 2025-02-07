@@ -20,18 +20,12 @@
   ],
   "sideEffects": false,
   "exports": {
-    ".": {
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs"
-    },
-    "./presets": {
-      "import": "./dist/presets.mjs",
-      "require": "./dist/presets.cjs"
-    }
+    ".": "./dist/index.mjs",
+    "./presets": "./dist/presets.mjs"
   },
-  "main": "./dist/index.cjs",
+  "main": "./dist/index.mjs",
   "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
+  "types": "./dist/index.d.mts",
   "files": [
     "*.d.ts",
     "dist"
