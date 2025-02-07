@@ -1,4 +1,4 @@
-let foo: string = 'bar'
+const foo: string = 'bar'
 
 export default {
   foo,
