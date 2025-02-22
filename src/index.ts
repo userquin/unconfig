@@ -2,6 +2,7 @@ import type { LoadConfigOptions, LoadConfigResult, LoadConfigSource } from './ty
 import { promises as fs } from 'node:fs'
 import { basename, dirname, join } from 'node:path'
 import process from 'node:process'
+import { pathToFileURL } from 'node:url'
 import { notNullish, toArray } from '@antfu/utils'
 import defu from 'defu'
 import { findUp } from './fs'
@@ -146,7 +147,7 @@ async function loadConfigFile<T>(
       }
       else if (parser === 'import') {
         if (process.features.typescript || process.versions.bun || process.versions.deno) {
-          const defaultImport = await import(bundleFilepath)
+          const defaultImport = await import(pathToFileURL(bundleFilepath).href)
           config = interopDefault(defaultImport)
         }
         else {
